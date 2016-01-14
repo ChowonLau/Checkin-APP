@@ -60,7 +60,7 @@ public class MapMainActivity extends Activity {
         mBaiduMap = mMapView.getMap(); // 获取BaiduMap对象
         mMapView.removeViewAt(1); // 去掉百度logo
         mBaiduMap.setMyLocationEnabled(true); //不显示我的位置，样覆盖物代替
-        mBaiduMap.setMaxAndMinZoomLevel(18, 17); //地图的最大最小缩放比例3-18
+        mBaiduMap.setMaxAndMinZoomLevel(20, 18); //地图的最大最小缩放比例3-18
         mLocClient = new LocationClient(this); //地图在tabhost中，请传入getApplicationContext()
         mLocClient.registerLocationListener(myListener); //绑定定位监听
         LocationClientOption option = new LocationClientOption(); //配置参数
@@ -129,7 +129,7 @@ public class MapMainActivity extends Activity {
         textView.setText(location.getAddrStr());
         pt = new LatLng(location.getLatitude() + 0.0004, location.getLongitude() + 0.00005);
 
-        mInfoWindow = new InfoWindow(view, pt,null);
+        mInfoWindow = new InfoWindow(view, pt,0);
         mBaiduMap.showInfoWindow(mInfoWindow); //显示气泡
         Toast.makeText(MapMainActivity.this, "定位成功,请返回",Toast.LENGTH_SHORT).show();
 
